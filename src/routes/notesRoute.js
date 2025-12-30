@@ -1,15 +1,14 @@
 import express from 'express'
-import { createNote, updateNote, deleteNote, getAllNotes } from '../controllers/notesController.js'
-import { hasToken } from '../middlewares/hasToken.js'
+import { createNote, deleteNote, getAllNotes } from '../controllers/notesController.js'
+
 
 const notesRoute = express.Router()
 
-notesRoute.post('/create', hasToken, createNote)
+notesRoute.post('/create', createNote)
 
-notesRoute.put('/update/:id', hasToken, updateNote)
+notesRoute.delete('/delete/:id', deleteNote)
 
-notesRoute.delete('/delete/:id', hasToken, deleteNote)
+notesRoute.get('/fetch', getAllNotes)
 
-notesRoute.get('/fetch', hasToken, getAllNotes)
 
 export default notesRoute
