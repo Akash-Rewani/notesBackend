@@ -13,8 +13,12 @@ app.use(express.json())
 
 app.use('/notes', notesRoute)
 
+
+
 dbConnect()
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
 })
+
+export default app; 
